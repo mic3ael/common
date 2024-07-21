@@ -11,8 +11,8 @@ import (
 )
 
 type ObjectPath struct {
-	Bucket string
-	Key    string
+	Bucket string `json:"bucket"`
+	Key    string `json:"key"`
 }
 
 type Object struct {
