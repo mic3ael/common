@@ -1,4 +1,4 @@
-package objectstorage
+package common
 
 import (
 	"bytes"
@@ -58,6 +58,5 @@ func (s Storage) Put(obj Object) error {
 }
 
 func NewStorage(ctx context.Context, cfg aws.Config) *Storage {
-	fmt.Println("Hello")
 	return &Storage{client: s3.NewFromConfig(cfg), ctx: ctx}
 }
