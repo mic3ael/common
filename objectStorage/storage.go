@@ -45,9 +45,9 @@ func (s *Storage) Get(path ObjectPath) (io.ReadCloser, error) {
 
 func (s *Storage) Put(obj Object) error {
 	_, err := s.client.PutObject(s.ctx, &s3.PutObjectInput{
-		Bucket: aws.String(obj.path.Bucket),
-		Key:    aws.String(obj.path.Key),
-		Body:   obj.body,
+		Bucket: aws.String(obj.Path.Bucket),
+		Key:    aws.String(obj.Path.Key),
+		Body:   obj.Body,
 	})
 
 	if err != nil {
