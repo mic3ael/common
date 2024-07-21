@@ -21,8 +21,8 @@ type Object struct {
 }
 
 type IStorage interface {
-	Get() (io.ReadCloser, error)
-	Put() error
+	Get(path ObjectPath) (io.ReadCloser, error)
+	Put(obj Object) error
 }
 
 type Storage struct {
