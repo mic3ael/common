@@ -1,4 +1,4 @@
-package common
+package objectstorage
 
 import (
 	"bytes"
