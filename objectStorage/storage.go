@@ -30,7 +30,7 @@ type Storage struct {
 	client *s3.Client
 }
 
-func (s Storage) Get(path ObjectPath) (io.ReadCloser, error) {
+func (s *Storage) Get(path ObjectPath) (io.ReadCloser, error) {
 	output, err := s.client.GetObject(s.ctx, &s3.GetObjectInput{
 		Bucket: aws.String(path.Bucket),
 		Key:    aws.String(path.Key),
@@ -43,7 +43,7 @@ func (s Storage) Get(path ObjectPath) (io.ReadCloser, error) {
 	return output.Body, nil
 }
 
-func (s Storage) Put(obj Object) error {
+func (s *Storage) Put(obj Object) error {
 	_, err := s.client.PutObject(s.ctx, &s3.PutObjectInput{
 		Bucket: aws.String(obj.path.Bucket),
 		Key:    aws.String(obj.path.Key),
