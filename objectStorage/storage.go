@@ -16,8 +16,8 @@ type ObjectPath struct {
 }
 
 type Object struct {
-	path ObjectPath
-	body *bytes.Reader
+	Path ObjectPath
+	Body *bytes.Reader
 }
 
 type IStorage interface {
